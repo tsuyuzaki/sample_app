@@ -8,6 +8,10 @@ rackup      DefaultRackup
 port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 
+cert = "/Users/norihikotsuyuzaki/example.com.pem"
+key = "/Users/norihikotsuyuzaki/example.com-key.pem"
+ssl_bind "0.0.0.0", 9292, cert: cert, key: key
+
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
   # See: https://devcenter.heroku.com/articles/
